@@ -5,7 +5,8 @@ run:
 	~/study/jdk/bin/javac com/zhh/test/jdk/*.java
 	~/study/jdk/bin/java -cp . com.zhh.test.jdk.HelloWorld
 #jdb -attach localhost:10000
-#debug_server会启动两个java进程，一个调试服务器，一个被调试程序
+#makefile里的规则命令是以这种方式执行的：/bin/sh -c
+#zhh         6736    6735  0 15:22 pts/33   00:00:00 /bin/sh -c ~/study/jdk/bin/java \ -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=10000 \ -cp . \ com.zhh.test.jdk.HelloWorld
 debug_server:
 	~/study/jdk/bin/java \
 	-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=10000 \
