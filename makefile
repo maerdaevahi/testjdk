@@ -5,6 +5,7 @@ run:
 	~/study/jdk/bin/javac com/zhh/test/jdk/*.java
 	~/study/jdk/bin/java -cp . com.zhh.test.jdk.HelloWorld
 #jdb -attach localhost:10000
+#debug_server会启动两个java进程，一个调试服务器，一个被调试程序
 debug_server:
 	~/study/jdk/bin/java \
 	-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=10000 \
